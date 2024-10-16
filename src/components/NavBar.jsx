@@ -11,12 +11,12 @@ const NavBar = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const user = useSelector((store)=> store.user);
-  console.log(user);
+  // console.log(user);
 
   const handleLogout = async ()=>{
     try{
       const res = await axios.post(BASE_URL + "/logout",  {}, {withCredentials : true});
-      console.log(res);
+      // console.log(res);
       dispatch(removeUser());
       return navigate("/login");
     }
@@ -49,6 +49,8 @@ const NavBar = () => {
                     Profile
                     <span className="badge">New</span>
                   </Link>
+                  <Link to="/connections">Connections</Link>
+                  <Link to="/requests">Requests</Link>
                 </li>
                 <li><a>Settings</a></li>
                 <a onClick={handleLogout}>Logout</a>

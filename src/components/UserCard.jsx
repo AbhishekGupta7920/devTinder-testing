@@ -14,9 +14,10 @@ const UserCard = ({ user }) => {
           {},
           { withCredentials: true }
         );
-        dispatch(removeUserFromFeed(userId));
+        dispatch(removeUserFromFeed(_id));
       } catch (err) {}
     };
+
     return (
       <div className="card bg-base-300 w-96 shadow-xl">
         <figure>

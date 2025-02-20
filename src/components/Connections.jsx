@@ -13,7 +13,8 @@ const Connections = () => {
         withCredentials: true,
       });
       console.log(res);
-      dispatch(addConnections(res.data.data));
+      dispatch(addConnections(res.data.connectionsInfo));
+      console.log(res.data.connectionsInfo);
     } catch (err) {
       // Handle Error Case
     }
@@ -21,6 +22,7 @@ const Connections = () => {
 
   useEffect(() => {
     fetchConnections();
+    console.log(connections);
   }, []);
 
   if (!connections) return;
@@ -33,7 +35,7 @@ const Connections = () => {
 
       {connections.map((connection) => {
         const { _id, firstName, lastName, photoUrl, age, gender, about } =
-          connection;
+          connection.fromUserId;
 
         return (
           <div key={_id} className=" flex m-4 p-4 rounded-lg bg-base-300 w-1/2 mx-auto">

@@ -51,12 +51,19 @@ const NavBar = () => {
                   </Link>
                   <Link to="/connections">Connections</Link>
                   <Link to="/requests">Requests</Link>
+                  
                 </li>
                 <li><a>Settings</a></li>
                 <a onClick={handleLogout}>Logout</a>
               </ul>
             </div>
           </div>
+        }
+        {!user &&
+            <div className='flex gap-2'>
+              <Link to="/signup">SingUP</Link>
+              <Link to="/login">login</Link>
+            </div>
         }
       </div>
     </div>
